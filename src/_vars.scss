@@ -1,0 +1,45 @@
+$softred: hsl(7, 99%, 70%);
+$yellow: hsl(51, 100%, 49%);
+$darkDcyan: hsl(167, 40%, 24%);
+$darkMcyan: hsl(168, 34%, 41%);
+$darkblue: hsl(198, 62%, 26%);
+
+$vdarkDblue: hsl(212, 27%, 19%);
+$vdarkGblue: hsl(213, 9%, 39%);
+$darkGblue: hsl(232, 10%, 55%);
+$grayishblue: hsl(210, 4%, 67%);
+$white: hsl(0, 0%, 100%);
+
+%fontFraunces {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+}
+%fontBarlow {
+    font-family: 'Barlow', sans-serif;
+}
+
+%linkUnstyler {
+    color:inherit;
+    text-decoration: none;
+}
+
+%putmedown {
+    position:absolute;
+    bottom:30px;
+    text-align: center;
+    h3 {
+        @extend %fontFraunces;
+    }
+}
+
+%underline {
+    content:'';
+    position:absolute;
+    width:105%;
+    transform: translateX(-2.5%);
+    height:.5em;
+    border-radius:.25em;
+    z-index:-1;
+    bottom:0;
+    left:0;
+}

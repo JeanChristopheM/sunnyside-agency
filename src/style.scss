@@ -1,0 +1,363 @@
+@import 'vars';
+
+* {
+    box-sizing: border-box;
+}
+html, body {
+    margin:0;
+    padding:0;
+}
+body {
+    font-size: 18px;
+    max-width: 1440px;
+    margin:0 auto;
+    background-color: #3ebfff;
+}
+p {
+    @extend %fontBarlow;
+}
+header {
+    color:white;
+    background: #3ebfff url('./images/photos/image-header.jpg') no-repeat bottom;
+    background-size: 100%;
+    min-height: 800px;
+    padding: 2em;
+    position:relative;
+    section {
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Barlow', sans-serif;
+    }
+    nav {
+        position:absolute;
+        right:2em;
+        a, a:visited {
+            text-decoration: none;
+            color:inherit;
+            padding: 1em;
+            font-size: 1.2em;
+            border-radius: 2em;
+            transition: font-family 2s;
+            &:last-child {
+                background-color: white;
+                border-radius: 2em;
+                color:$vdarkDblue;
+                @extend %fontFraunces;
+                text-transform: uppercase;
+            }
+        }
+    }
+    h1 {
+        font-family: 'Fraunces', serif;
+        font-size: 3.5em;
+        text-align: center;
+        padding: 2rem;
+        letter-spacing: 10px;
+        position:relative;
+        font-weight: 900;
+        &::after {
+            content:'';
+            position:absolute;
+            width:100px;
+            height:150px;
+            background: no-repeat url('./images/icons/icon-arrow-down.svg') center;
+            background-size: 40%;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, 50%);
+        }
+    }
+    svg {
+        fill: $white;
+    }
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: min-content;
+    margin: 0 auto;
+    section {
+        position: relative;
+        height:40vw;
+        max-height:600px;
+        img {
+            width:100%;
+        }
+    }
+    .whiteCard {
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        padding:0 20%;
+        background-color: $white;
+        h2 {
+            @extend %fontFraunces;
+            color: $vdarkDblue;
+            font-size:2em;
+        }
+        p {
+            color: $darkGblue;
+            margin-bottom:3em;
+        }
+        a, a:visited {
+            @extend %fontFraunces;
+            @extend %linkUnstyler;
+            color: $vdarkDblue;
+            text-transform: uppercase;
+            position:relative;
+            margin:0 auto 0 0;
+            isolation: isolate;
+        }
+        #yellowUnderline::after {
+            @extend %underline;
+            background-color: $yellow;
+        }
+        #pinkUnderline::after {
+            @extend %underline;
+            background-color: pink;
+        }
+    }
+    .picEgg {
+        background: $yellow url('./images/photos/image-transform.jpg') no-repeat center;
+        background-size: cover;
+    }
+    .picGlass {
+        background: $softred url('./images/photos/image-stand-out.jpg') no-repeat bottom;
+        background-size: cover;
+    }
+    .picCherry {
+        background: #9fddce url('./images/photos/image-graphic-design.jpg') no-repeat top;
+        background-size: cover;
+        & .putmedown {
+            @extend %putmedown;
+            padding: 0 20%;
+            color: $darkMcyan;
+            h3 {
+                color: $darkDcyan;
+            }
+        }
+    }
+    .picOrange {
+        background: #5ccaff url('./images/photos/image-photography.jpg') no-repeat top;
+        background-size: cover;
+        & .putmedown {
+            @extend %putmedown;
+            padding: 0 20%;
+            color: $darkblue;
+            h3 {
+                color: $vdarkDblue;
+            }
+        }
+    }
+    .clients {
+        height:unset;
+        padding:7rem 4rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: min-content auto;
+        background-color: $white;
+        text-align: center;
+        .client {
+            display:grid;
+            justify-items: center;
+            grid-template-rows: min-content auto min-content min-content;
+            padding:1em;
+        }
+        .profilePic {
+            width: 50px;
+            border-radius: 50%;
+        }
+        h4 {
+            grid-column: span 3;
+            @extend %fontFraunces;
+            color: $grayishblue;
+            text-transform: uppercase;
+            letter-spacing: .5rem;
+            margin-bottom: 3rem;
+        }
+        p {
+            color: $vdarkGblue;
+            padding:2rem 0;
+        }
+        h2 {
+            @extend %fontFraunces;
+            margin:0;
+            font-size:1.2em;
+            color: $vdarkDblue;
+        }
+        .clientStatus {
+            color: $grayishblue;
+            margin:0;
+            padding:.5em 0 0 0;
+        }
+    }
+    .bottomImages {
+        display: flex;
+        max-height: 450px;
+        & img {
+            width:25%;
+            object-fit: cover;
+        }
+    }
+}
+
+footer {
+    background-color: #90d4c5;
+    display: flex;
+    flex-direction: column;
+    padding:3rem 2rem 2rem 2rem;
+    &>* {
+        margin:0 auto;
+    }
+    svg {
+        fill: $darkDcyan;
+    }
+    .footer__menu {
+        padding:2rem;
+        color: $darkMcyan;
+        @extend %fontBarlow;
+        font-size:1em;
+        a + a {
+            margin-left:2rem;
+        }
+        a, a:visited{
+            @extend %linkUnstyler;
+        }
+    }
+    .footer__social {
+        padding:2rem;
+        img + img {
+            margin-left: 1rem;
+        }
+    }
+}
+.attribution { 
+    font-size: 11px;
+    text-align: center; 
+    a {
+        color: hsl(228, 45%, 44%);
+    }
+}
+.span4 {
+    grid-column: span 4;
+}
+.span2 {
+    grid-column: span 2;
+}
+.hideMe {
+    display: block;
+}
+.hamburger {
+    display:none;
+}
+.smallMenu {
+    display:none;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-evenly;
+
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    background-color:white;
+    font-size:18px;
+    padding: 1em;
+    border-radius:1em;
+    box-shadow: 0px 0px 1em black;
+    a {
+        @extend %fontBarlow;
+        @extend %linkUnstyler;
+        padding:1em;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    body {
+        font-size: 14px;
+    }
+    main {
+        .whiteCard {
+            padding: 0 5%;
+        }
+        .picCherry .putmedown {
+            padding: 0 5%;
+        }
+        .picOrange .putmedown {
+            padding: 0 5%;
+        }
+        .clients {
+            padding: 2em 2rem;
+        }
+    }
+}
+@media only screen and (max-width: 768px) {
+    header {
+        min-height: 75vh;
+        h1 {
+            font-size: 2em;
+        }
+        nav {
+            display:none;
+        }
+    }
+    main {
+        grid-template-columns: 1fr;
+        .whiteCard p {
+            margin:unset;
+            margin-bottom:1em;
+        }
+        section {
+            height:unset;
+            max-height: unset;
+            min-height:75vw;
+        }
+        .bottomImages img {
+            width: 50%;
+        }
+        .clients {
+            display: flex;
+            flex-direction: column;
+            p {
+                padding: 0 20%;
+            }
+        }
+    }
+    .span2 {
+        grid-column: unset;
+    }
+    .span4 {
+        grid-column: unset;
+    }
+    .hideMe {
+        display:none;
+    }
+    %putmedown {
+        bottom:0;
+    }
+    footer .footer__menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        a + a {
+            margin-left: unset;
+            margin-top: 1em;
+        }
+    }
+    .hamburger {
+        display:block;
+        top:0;
+        right:0;
+        padding:1em;
+        transform: translate(1em, -1em);
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    header {
+        padding:1em;
+        h1 {
+            font-size: 1.5em;
+        }
+    }
+}
